@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>Code Retreat Admin Console</title>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+	.screen{
+		width:100%;
+		text-align: center;
+		margin-top: 50px;
+		font-size: 20pt;
+		font-family: Verdana;
+		background-color: lightgray;
+	}
+	.sessions{
+		text-align: center;
+	}
+	td{
+		border: 1px black solid;
+	}
+	</style>
+	<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyAD98USTaFV6BOidsqgh1eqPNJFt2g-SuU",
+		authDomain: "code-reatreat.firebaseapp.com",
+		databaseURL: "https://code-reatreat.firebaseio.com",
+		storageBucket: "code-reatreat.appspot.com",
+		messagingSenderId: "260899568163"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+</head>
+
+<body>
+	<div id="root"></div>
+</body>
+	<script src="coderetreat.js"></script>
+	<script src="Admin.jsx" type="text/babel"></script>
+
+</html>
