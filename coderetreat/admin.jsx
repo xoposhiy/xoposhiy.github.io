@@ -22,6 +22,7 @@ function Page(props){
 		<div>nGuests: {props.data.nGuests}</div>
 		<div>nExperts: {props.data.nExperts}</div>
 		<div>nSessions: {sessionIndex}</div>
+		<div>nLeftGuests: {(props.data.leftGuests || []).length}</div>
 		<input id="sessionIndex" value={sessionIndex} />
 		<button onClick={() => onGenerateClick(props.data, sessionIndex)}>Generate session</button>
 	</div>);

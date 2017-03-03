@@ -2,6 +2,16 @@ function generateSession(data, sessionIndex){
 	let luck = calculateLuck(data.sessions, sessionIndex);
 	var guests = Array.from(new Array(data.nGuests).keys()).
 		sort((a, b) => (luck[a]||0) - (luck[b]||0));
+	for(let leftGuest of data.leftGuests || []){
+		let index = guests.indexOf(+leftGuest);
+		if (index >= 0)
+		{
+			guests.splice(index, 1);
+			console.log("remove left guest. len: " + guests.length);
+		}
+		else
+			console.log("left guest " + leftGuest + " not found!");
+	}
 	var pastPairs = calculatePastPairs(data.sessions, sessionIndex);
 	var pairs = {};
 	var iTable = 0;
@@ -10,13 +20,17 @@ function generateSession(data, sessionIndex){
 		pairs[guest] = {table:iTable, pair:iTable, expert:true, luck: luck[guest]+1 || 1, history:formatHistory(pastPairs[guest])};
 		iTable++;
 	}
-	while (guests.length > 0){
+	while (guests.length > 1){
 		let guest = guests.shift();
 		let pair = extractRandomExcept(pastPairs[guest], guests);
 		if (pair === null) return null;
 		pairs[guest] = {table:iTable, pair: pair, expert: false, luck: luck[guest] || 0, history:formatHistory(pastPairs[guest])};
 		pairs[pair] = {table:iTable, pair: guest, expert: false, luck: luck[pair] || 0, history:formatHistory(pastPairs[pair])};
 		iTable++;
+	}
+	if (guests.length > 0){
+		let guest = guests.shift();
+		pairs[guest] = {table:iTable, pair: -1, expert: true, luck: luck[guest]+1 || 1, history:formatHistory(pastPairs[guest])};
 	}
 	return pairs;
 }

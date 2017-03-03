@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<title>εύρηκα!</title>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+	</style>
+</head>
+
+	<body>
+		<div id="root">
+			<center><h1>{{idea}}</h1></center>
+			<center><button v-on:click="generate" class="button btn btn-primary btn-lg">Некогда объяснять, нужна идея!</button></center>
+		</div>
+	</body>
+	<script src="generator.js" type="text/babel"></script>
+</html>
