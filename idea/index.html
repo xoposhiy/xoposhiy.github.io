@@ -8,6 +8,9 @@
 	<script src="https://unpkg.com/vue"></script>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<style>
+		body {
+			padding: 50px;
+		}
 	</style>
 </head>
 
@@ -15,6 +18,7 @@
 		<div id="root">
 			<center><h1>{{idea}}</h1></center>
 			<center><button v-on:click="generate" class="button btn btn-primary btn-lg">Некогда объяснять, нужна идея!</button></center>
+			<center><a v-bind:href="mailto">Отправить идею в бизнес-инкубатор</a></center>
 		</div>
 	</body>
 	<script src="generator.js" type="text/babel"></script>

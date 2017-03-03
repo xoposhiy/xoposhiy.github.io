@@ -161,6 +161,11 @@ var data = {
 var vm = new Vue({
 	el: "#root",
 	data: data,
+	computed: {
+		mailto: function(){
+			return "mailto:Шифман&cc=Устюжанин&subject=Идея проекта: " + this.idea;
+		}
+	},
 	methods: {
 		generate: function(event){
 			this.idea = generate(this.ideasCount);
