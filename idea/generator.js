@@ -183,7 +183,6 @@ function replaceNbsp(name){
 }
 
 function shuffle(a) {
-	return a;
 	var j, x, i;
 	for (i = a.length; i; i--) {
 		j = Math.floor(Math.random() * i);
