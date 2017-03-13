@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 4);
@@ -92,6 +92,7 @@ function initializeFirebase(vm) {
 	return new Promise((resolve, reject) => {
 		firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
+				vm.userId = user.uid;
 				subscribeLastIdeas(vm);
 				resolve(true);
 			} else {
@@ -9419,7 +9420,7 @@ String.prototype.capitalizeFirstLetter = function () {
 };
 
 let generate = function (i) {
-	let generators = [concat({ which: __WEBPACK_IMPORTED_MODULE_0__generator__["a" /* which */], what: __WEBPACK_IMPORTED_MODULE_0__generator__["b" /* what */], forWhom: __WEBPACK_IMPORTED_MODULE_0__generator__["c" /* forWhom */], withWhat: __WEBPACK_IMPORTED_MODULE_0__generator__["d" /* withWhat */] })];
+	let generators = [concat({ whichRaw: __WEBPACK_IMPORTED_MODULE_0__generator__["a" /* which */], whatRaw: __WEBPACK_IMPORTED_MODULE_0__generator__["b" /* what */], forWhom: __WEBPACK_IMPORTED_MODULE_0__generator__["c" /* forWhom */], withWhat: __WEBPACK_IMPORTED_MODULE_0__generator__["d" /* withWhat */] })];
 	let parts = postProcess(generators[i % generators.length]());
 	return parts;
 };
@@ -9430,12 +9431,11 @@ let makeFemale = function (phrase) {
 
 let postProcess = function (parts) {
 	// женский род
-	if (parts.what.endsWith('!')) {
-		parts.female = true;
-		parts.what = parts.what.replace('!', '');
-		if (parts.which !== undefined) parts.which = makeFemale(parts.which);
-	}
-	if (parts.which !== undefined) parts.which = parts.which.capitalizeFirstLetter();else parts.what = parts.what.capitalizeFirstLetter();
+	parts.what = parts.whatRaw.replace('!', '');
+	parts.which = parts.whichRaw;
+	let female = parts.whatRaw.endsWith('!');
+	if (female) parts.which = makeFemale(parts.whichRaw);
+	parts.which = parts.which.capitalizeFirstLetter();
 	parts.fullText = [parts.which, parts.what, parts.withWhat, parts.forWhom].join(' ');
 	return parts;
 };
@@ -9456,11 +9456,12 @@ let selectFrom = function (array) {
 
 let data = {
 	ideasCount: 1,
+	userId: null,
 	idea: generate(1),
+	isIdeaShown: true,
+	isIdeaLiked: false,
 	lastIdeas: null,
-	bestIdeas: null,
-	lastIdeasFeedShown: true,
-	bestIdeasFeedShown: false
+	bestIdeas: null
 };
 
 let vm = new __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */]({
@@ -9468,58 +9469,53 @@ let vm = new __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */]({
 	data: data,
 	computed: {
 		isFeedShown: function () {
-			return this.lastIdeas !== null && this.lastIdeasFeedShown || this.bestIdeas !== null && this.bestIdeasFeedShown;
-		},
-		feed: function () {
-			return this.lastIdeasFeedShown ? this.lastIdeas : this.bestIdeasFeedShown ? this.bestIdeas : [];
+			return this.lastIdeas !== null || this.bestIdeas !== null;
 		}
 	},
 	methods: {
-		clickIdea: function (event) {
-			yaCounter43328569.reachGoal("clickIdea", { idea: this.idea, count: this.ideasCount });
-		},
 		changeWhich: function (event) {
-			this.idea.which = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["a" /* which */]);
+			this.idea.whichRaw = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["a" /* which */]);
 			this.idea = postProcess(this.idea);
 			this.ideasCount++;
+			this.isIdeaLiked = false;
 		},
 		changeWhat: function (event) {
-			this.idea.what = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["b" /* what */]);
+			this.idea.whatRaw = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["b" /* what */]);
 			this.idea = postProcess(this.idea);
 			this.ideasCount++;
+			this.isIdeaLiked = false;
 		},
 		changeForWhom: function (event) {
 			this.idea.forWhom = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["c" /* forWhom */]);
 			this.idea = postProcess(this.idea);
 			this.ideasCount++;
+			this.isIdeaLiked = false;
 		},
 		changeWithWhat: function (event) {
 			this.idea.withWhat = selectFrom(__WEBPACK_IMPORTED_MODULE_0__generator__["d" /* withWhat */]);
 			this.idea = postProcess(this.idea);
 			this.ideasCount++;
+			this.isIdeaLiked = false;
 		},
 		markIdeaAsGood: function (event) {
-			__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["a" /* initializeFirebase */])(this).then(_ => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["b" /* saveLikeToFirebase */])(this.idea)).then(_ => {
-				this.idea = generate(this.ideasCount++);
-				this.showLastIdeasFeed();
-			});
+			__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["a" /* initializeFirebase */])(this).then(() => this.isIdeaLiked = true).then(_ => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["b" /* saveLikeToFirebase */])(this.idea));
 		},
 		markIdeaAsBad: function (event) {
-			this.idea = generate(this.ideasCount++);
+			this.isIdeaShown = false;
+
+			setTimeout(() => {
+				this.idea = generate(this.ideasCount++);
+				this.isIdeaShown = true;
+				this.isIdeaLiked = false;
+			}, 250);
 		},
 		addLikeToIdea: function (idea) {
 			__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["a" /* initializeFirebase */])(this).then(_ => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["b" /* saveLikeToFirebase */])(idea));
 		},
-		showLastIdeasFeed: function () {
-			this.lastIdeasFeedShown = true;
-			this.bestIdeasFeedShown = false;
-		},
-		showBestIdeasFeed: function () {
-			this.bestIdeasFeedShown = true;
-			this.lastIdeasFeedShown = false;
-		}
+		hasOwnLike: idea => idea.likers.reduce((has, liker) => has || liker === data.userId, false)
 	}
 });
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=bundle.js.map
