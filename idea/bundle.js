@@ -9516,6 +9516,8 @@ let vm = new __WEBPACK_IMPORTED_MODULE_2_vue__["a" /* default */]({
 	}
 });
 
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__db__["a" /* initializeFirebase */])(vm);
+
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map
