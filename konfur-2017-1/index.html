@@ -38,7 +38,7 @@
 			.domain([30, 60, 100])
 			.range(["red", "yellow", "lightgreen"]);
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
-            width = 1200 - margin.left - margin.right, // was 960
+            width = 900 - margin.left - margin.right, // was 960
             //height = 1500 - margin.top - margin.bottom; // was 500
             height = 3000; // UBS Example
 
@@ -61,6 +61,9 @@
 
         d3.json("graph.json", function(energy) {  
 
+		for(let n of energy.nodes){
+			n.height = Math.min(90, Math.max(30, n.len));
+		}
           sankey
               .nodes(energy.nodes)
               .links(energy.links)
@@ -93,7 +96,7 @@
               .on("drag", dragmove));
 
           node.append("rect")
-              .attr("height", function(d) { return 2*d.len;})
+              .attr("height", function(d) { return d.height;})
               .attr("width", function(d) { return d.dy; })
               .style("fill", function(d) { return d.color = ratingColor(d.rating); })
               //.style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
@@ -104,7 +107,7 @@
           node.append("text")
               .attr("text-anchor", "middle")
               .attr("x", function (d) { return d.dy / 2 })
-              .attr("y", function (d) { return d.len })
+              .attr("y", function (d) { return d.height / 2 })
               .attr("dy", ".35em")
               .style("fill", "black")
               .text(function(d) { return d.name; })

@@ -1,6 +1,5 @@
 d3.sankey = function() {
   var sankey = {},
-	  lenK = 2,
       nodeWidth = 24,
       nodePadding = 8, // was 8, needs to be much bigger. these numbers are actually overwritten in the html when we instantiate the viz!
       size = [1, 1],
@@ -72,7 +71,7 @@ d3.sankey = function() {
         // big changes here obviously, more comments to follow
         var x0 = d.source.x + d.sy + d.dy / 2,
             x1 = d.target.x + d.ty + d.dy / 2,
-          y0 = d.source.y + d.source.len*lenK,
+          y0 = d.source.y + d.source.height,
           y1 = d.target.y,
           yi = d3.interpolateNumber(y0, y1),
           y2 = yi(curvature),
@@ -140,7 +139,7 @@ d3.sankey = function() {
       // this bit is actually the node sizes (widths)
       //var ky = (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value)
       // this should be only source nodes surely (level 1)
-      var ky = (size[0] - (nodesByBreadth[0].length - 1) * nodePadding) / d3.sum(nodesByBreadth[0], value);
+      var ky = (size[0] - (nodesByBreadth[0].length) * nodePadding) / d3.sum(nodesByBreadth[0], value);
       // I'd like them to be much bigger, this calc doesn't seem to fill the space!?
 
       nodesByBreadth.forEach(function(nodes) {
