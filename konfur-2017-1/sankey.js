@@ -1,5 +1,6 @@
 d3.sankey = function() {
   var sankey = {},
+	  lenK = 2,
       nodeWidth = 24,
       nodePadding = 8, // was 8, needs to be much bigger. these numbers are actually overwritten in the html when we instantiate the viz!
       size = [1, 1],
@@ -71,7 +72,7 @@ d3.sankey = function() {
         // big changes here obviously, more comments to follow
         var x0 = d.source.x + d.sy + d.dy / 2,
             x1 = d.target.x + d.ty + d.dy / 2,
-          y0 = d.source.y + nodeWidth,
+          y0 = d.source.y + d.source.len*lenK,
           y1 = d.target.y,
           yi = d3.interpolateNumber(y0, y1),
           y2 = yi(curvature),
@@ -144,7 +145,7 @@ d3.sankey = function() {
 
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
-          node.x = i;
+          node.x = node.xpos;
           node.dy = node.value * ky;
         });
       });
@@ -230,7 +231,7 @@ d3.sankey = function() {
       
     function ascendingDepth(a, b) {
         //return a.y - b.y; // flows go up
-        return b.x - a.x; // flows go down
+        return a.x - b.x; // flows go down
         //return a.x - b.x;
     }
     }
