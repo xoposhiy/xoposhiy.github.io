@@ -27,7 +27,7 @@
 
 </style>
 <script src="d3.v3.min.js"></script>
-<script src="sankey.js?v=3"></script>
+<script src="sankey.js?v=2"></script>
 </head>
 <body>
 
@@ -54,7 +54,7 @@
 
         var sankey = d3.sankey()
             .nodeWidth(60) // was 15
-            .nodePadding(0) // was 10
+            .nodePadding(60) // was 10
             .size([width, height]);
 
         var path = sankey.link();
@@ -111,7 +111,7 @@
               .filter(function(d) { return d.x < width / 2; });
                         
           function dragmove(d) {
-            d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+            d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height, d3.event.y))) + ")");
             d3.select(this).attr("transform", "translate(" + (d.x = Math.max(0, Math.min(width - d.dy, d3.event.x))) + "," + d.y + ")");
             sankey.relayout();
             link.attr("d", path);
