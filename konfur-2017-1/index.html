@@ -93,7 +93,7 @@
               .on("drag", dragmove));
 
           node.append("rect")
-              .attr("height", function(d) { return d.len;})
+              .attr("height", function(d) { return 2*d.len;})
               .attr("width", function(d) { return d.dy; })
               .style("fill", function(d) { return d.color = ratingColor(d.rating); })
               //.style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
@@ -104,7 +104,7 @@
           node.append("text")
               .attr("text-anchor", "middle")
               .attr("x", function (d) { return d.dy / 2 })
-              .attr("y", sankey.nodeWidth() / 2)
+              .attr("y", function (d) { return d.len })
               .attr("dy", ".35em")
               .style("fill", "black")
               .text(function(d) { return d.name; })
