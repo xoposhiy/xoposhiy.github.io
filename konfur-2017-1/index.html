@@ -4,6 +4,9 @@
 <title>КонфУР 2017 лето</title>
 <style>
 
+body{
+	background-color: #1E1E1E;
+}
 .node rect {
   cursor: move;
   fill-opacity: .9;
@@ -12,17 +15,17 @@
 
 .node text {
   pointer-events: none;
-  
+  font-family: Consolas;
 }
 
 .link {
   fill: none;
   stroke: #000;
-  stroke-opacity: .2;
+  stroke-opacity: .4;
 }
 
 .link:hover {
-  stroke-opacity: .5;
+  stroke-opacity: .7;
 }
 
 </style>
@@ -38,9 +41,9 @@
 			.domain([30, 60, 100])
 			.range(["red", "yellow", "lightgreen"]);
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
-            width = 900 - margin.left - margin.right, // was 960
+            width = 800 - margin.left - margin.right, // was 960
             //height = 1500 - margin.top - margin.bottom; // was 500
-            height = 3000; // UBS Example
+            height = 3176; // UBS Example
 
         var formatNumber = d3.format(",.0f"),
             format = function(d) { return formatNumber(d) + " человек"; },
@@ -54,7 +57,7 @@
 
         var sankey = d3.sankey()
             .nodeWidth(60) // was 15
-            .nodePadding(60) // was 10
+            .nodePadding(100) // was 10
             .size([width, height]);
 
         var path = sankey.link();
@@ -62,7 +65,7 @@
         d3.json("graph.json", function(energy) {  
 
 		for(let n of energy.nodes){
-			n.height = Math.min(90, Math.max(30, n.len));
+			n.height = 20;//Math.min(90, Math.max(30, n.len));
 		}
           sankey
               .nodes(energy.nodes)
@@ -76,7 +79,7 @@
               .attr("d", path)
               .style("stroke-width", function(d) { return Math.max(1, d.dy); })
               //.style("stroke", function(d) { return d.source.color = color(d.source.name.replace(/ .*/, "")); })
-              .style("stroke", function(d) { return d.source.color = color("asdfasdf"); })
+              .style("stroke", function(d) { return ratingColor(d.source.rating); })
               .sort(function(a, b) { return b.dy - a.dy; });
 
           link.append("title")
@@ -104,14 +107,15 @@
             .append("title")
               .text(function(d) { return d.name + "\n" + d.speakers + "\n" + format(d.value); });
             
-          node.append("text")
-              .attr("text-anchor", "middle")
-              .attr("x", function (d) { return d.dy / 2 })
-              .attr("y", function (d) { return d.height / 2 })
-              .attr("dy", ".35em")
-              .style("fill", "black")
-              .text(function(d) { return d.name; })
-              .filter(function(d) { return d.x < width / 2; });
+		for(var i = 0; i<3; i++){
+		  node.append("text")
+			  .attr("text-anchor", "middle")
+			  .attr("x", function (d) { return d.dy / 2; })
+			  .attr("y", function (d) { return d.height + 10 + 16*i; })
+			  .attr("dy", ".35em")
+			  .style("fill", "#FFF")
+			  .text(function(d) { return d.name.split("\n")[i]; });
+		}
                         
           function dragmove(d) {
             d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height, d3.event.y))) + ")");

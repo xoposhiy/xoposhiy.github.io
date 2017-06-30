@@ -139,14 +139,17 @@ d3.sankey = function() {
       // this bit is actually the node sizes (widths)
       //var ky = (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value)
       // this should be only source nodes surely (level 1)
-      var ky = (size[0] - (nodesByBreadth[0].length) * nodePadding) / d3.sum(nodesByBreadth[0], value);
+      var ky = (size[0] - (nodesByBreadth[0].length) * nodePadding) / d3.sum(nodesByBreadth[0], value) / 2;
       // I'd like them to be much bigger, this calc doesn't seem to fill the space!?
 
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
-          node.x = node.xpos;
+          node.x = 80 + node.xpos;
           node.dy = node.value * ky;
         });
+		 if (nodes.length == 1 && !nodes[0].name.startsWith("Качество необходимое")){
+			 nodes[0].x = (width - nodes[0].dy)/2;
+		 }
       });
 
       links.forEach(function(link) {
@@ -254,7 +257,7 @@ d3.sankey = function() {
   function computeNodeDepths() {
         var remainingNodes = nodes,
         nextNodes,
-        y = 0;
+        y = 0.2;
 
         while (remainingNodes.length) {
           nextNodes = [];
