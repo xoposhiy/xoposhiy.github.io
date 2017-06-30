@@ -9,7 +9,7 @@ body{
 }
 .node rect {
   cursor: move;
-  fill-opacity: .9;
+  fill-opacity: 1;
   shape-rendering: crispEdges;
 }
 
@@ -21,11 +21,11 @@ body{
 .link {
   fill: none;
   stroke: #000;
-  stroke-opacity: .4;
+  stroke-opacity: .3;
 }
 
 .link:hover {
-  stroke-opacity: .7;
+  stroke-opacity: .6;
 }
 
 </style>
@@ -37,16 +37,24 @@ body{
         <p id="chart">
             
         <script>
+		function ending(d){
+			d = d%100;
+			let d1 = d%10;
+			let d2 = d/10;
+			if (d2 == 1) return "";
+			if (d1 >=2 && d1 <= 4) return "а";
+			return "";
+		}
 		var ratingColor = d3.scale.linear()
-			.domain([30, 60, 100])
-			.range(["red", "yellow", "lightgreen"]);
+			.domain([30, 70, 100])
+			.range(["red", "yellow", "#3AEB36"]);
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
             width = 800 - margin.left - margin.right, // was 960
             //height = 1500 - margin.top - margin.bottom; // was 500
             height = 3176; // UBS Example
 
         var formatNumber = d3.format(",.0f"),
-            format = function(d) { return formatNumber(d) + " человек"; },
+            format = function(d) { return formatNumber(d) + " человек" + ending(+d); },
             color = d3.scale.category20();
 
         var svg = d3.select("#chart").append("svg")
@@ -105,13 +113,13 @@ body{
               //.style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
               //.style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
             .append("title")
-              .text(function(d) { return d.name + "\n" + d.speakers + "\n" + format(d.value); });
+              .text(function(d) { return d.name.replace("\n", " ") + "\n" + d.speakers + "\n" + format(d.value) + ", полезность: " + d.rating + "%" });
             
 		for(var i = 0; i<3; i++){
 		  node.append("text")
 			  .attr("text-anchor", "middle")
 			  .attr("x", function (d) { return d.dy / 2; })
-			  .attr("y", function (d) { return d.height + 10 + 16*i; })
+			  .attr("y", function (d) { return - d.name.split("\n").length * 16 + 16*i; })
 			  .attr("dy", ".35em")
 			  .style("fill", "#FFF")
 			  .text(function(d) { return d.name.split("\n")[i]; });
