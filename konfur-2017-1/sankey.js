@@ -116,7 +116,8 @@ d3.sankey = function() {
   function computeNodeValues() {
     nodes.forEach(function(node) {
       node.value = Math.max(
-        d3.sum(node.sourceLinks, value),
+        node.value ? node.value : 0,
+		d3.sum(node.sourceLinks, value),
         d3.sum(node.targetLinks, value)
       );
     });
@@ -139,17 +140,20 @@ d3.sankey = function() {
       // this bit is actually the node sizes (widths)
       //var ky = (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value)
       // this should be only source nodes surely (level 1)
-      var ky = (size[0] - (nodesByBreadth[0].length) * nodePadding) / d3.sum(nodesByBreadth[0], value) / 2;
+      var ky = (size[0] - 3 * nodePadding) / d3.sum(nodesByBreadth[0], value) / 2;
       // I'd like them to be much bigger, this calc doesn't seem to fill the space!?
 
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
-          node.x = 80 + node.xpos;
           node.dy = node.value * ky;
+          if (node.track == 0 || node.track == 2)
+			node.x = (width - node.dy) / 2;
+          else if (node.track == 1)
+			node.x = 80;
+          else if (node.track == 3)
+			node.x = width - node.dy - 80;
+		  else throw "unknown track " + node.track;
         });
-		 if (nodes.length == 1 && !nodes[0].name.startsWith("Качество необходимое")){
-			 nodes[0].x = (width - nodes[0].dy)/2;
-		 }
       });
 
       links.forEach(function(link) {

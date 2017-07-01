@@ -49,9 +49,9 @@ body{
 			.domain([30, 70, 100])
 			.range(["red", "yellow", "#3AEB36"]);
         var margin = {top: 1, right: 1, bottom: 6, left: 1},
-            width = 800 - margin.left - margin.right, // was 960
+            width = 600 - margin.left - margin.right, // was 960
             //height = 1500 - margin.top - margin.bottom; // was 500
-            height = 3176; // UBS Example
+            height = 2000;
 
         var formatNumber = d3.format(",.0f"),
             format = function(d) { return formatNumber(d) + " человек" + ending(+d); },
@@ -110,8 +110,6 @@ body{
               .attr("height", function(d) { return d.height;})
               .attr("width", function(d) { return d.dy; })
               .style("fill", function(d) { return d.color = ratingColor(d.rating); })
-              //.style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
-              //.style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
             .append("title")
               .text(function(d) { return d.name.replace("\n", " ") + "\n" + d.speakers + "\n" + format(d.value) + ", полезность: " + d.rating + "%" });
             
