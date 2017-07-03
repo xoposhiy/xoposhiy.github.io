@@ -40,7 +40,7 @@ body{
 		function ending(d){
 			d = d%100;
 			let d1 = d%10;
-			let d2 = d/10;
+			let d2 = Math.floor(d/10);
 			if (d2 == 1) return "";
 			if (d1 >=2 && d1 <= 4) return "а";
 			return "";
