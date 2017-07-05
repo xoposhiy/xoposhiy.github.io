@@ -1,0 +1,1 @@
+See https://git.skbkontur.ru/pe/konfur-people-diagram
