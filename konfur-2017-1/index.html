@@ -1,136 +1,134 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<html>
 <head>
-<meta charset="utf-8">
-<title>КонфУР 2017 лето</title>
-<style>
+	<meta charset="utf-8">
+	<title>КонфУР 2017 лето</title>
+	<style>
+		body {
+			background-color: #1E1E1E;
+		}
 
-body{
-	background-color: #1E1E1E;
-}
-.node rect {
-  cursor: move;
-  fill-opacity: 1;
-  shape-rendering: crispEdges;
-}
+		.node rect {
+			cursor: move;
+			fill-opacity: 1;
+			shape-rendering: crispEdges;
+		}
 
-.node text {
-  pointer-events: none;
-  font-family: Consolas;
-}
+		.node text {
+			pointer-events: none;
+			font-family: Consolas;
+		}
 
-.link {
-  fill: none;
-  stroke: #000;
-  stroke-opacity: .3;
-}
+		.link {
+			fill: none;
+			stroke: #000;
+			stroke-opacity: .3;
+		}
 
-.link:hover {
-  stroke-opacity: .6;
-}
-
-</style>
-<script src="d3.v3.min.js"></script>
-<script src="sankey.js?v=2"></script>
+			.link:hover {
+				stroke-opacity: .6;
+			}
+	</style>
+	<script src="d3.v3.min.js"></script>
+	<script src="sankey-fixed.js"></script>
+	<script src="graph.js"></script>
 </head>
 <body>
 
-        <p id="chart">
-            
-        <script>
-		function ending(d){
-			d = d%100;
-			let d1 = d%10;
-			let d2 = Math.floor(d/10);
-			if (d2 == 1) return "";
-			if (d1 >=2 && d1 <= 4) return "а";
-			return "";
-		}
-		var ratingColor = d3.scale.linear()
-			.domain([30, 70, 100])
-			.range(["red", "yellow", "#3AEB36"]);
-        var margin = {top: 1, right: 1, bottom: 6, left: 1},
-            width = 600 - margin.left - margin.right, // was 960
-            //height = 1500 - margin.top - margin.bottom; // was 500
-            height = 2000;
+	<p id="chart">
 
-        var formatNumber = d3.format(",.0f"),
-            format = function(d) { return formatNumber(d) + " человек" + ending(+d); },
-            color = d3.scale.category20();
+		<script>
+			function ending(d) {
+				d = d % 100;
+				let d1 = d % 10;
+				let d2 = Math.floor(d / 10);
+				if (d2 === 1) return "";
+				if (d1 >= 2 && d1 <= 4) return "а";
+				return "";
+			}
+			var ratingColor = d3.scale.linear()
+				.domain([30, 70, 100])
+				.range(["red", "yellow", "#3AEB36"]);
+			var margin = { top: 1, right: 1, bottom: 6, left: 1 },
+				width = 600 - margin.left - margin.right, // was 960
+				//height = 1500 - margin.top - margin.bottom; // was 500
+				height = 2000;
 
-        var svg = d3.select("#chart").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-          .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			var formatNumber = d3.format(",.0f"),
+				format = function (d) { return formatNumber(d) + " человек" + ending(+d); },
+				color = d3.scale.category20();
 
-        var sankey = d3.sankey()
-            .nodeWidth(60) // was 15
-            .nodePadding(100) // was 10
-            .size([width, height]);
+			var svg = d3.select("#chart").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        var path = sankey.link();
+			var sankey = d3.sankey()
+				.nodeWidth(60) // was 15
+				.nodePadding(100) // was 10
+				.size([width, height]);
 
-        d3.json("graph.json", function(energy) {  
+			var path = sankey.link();
 
-		for(let n of energy.nodes){
-			n.height = 20;//Math.min(90, Math.max(30, n.len));
-		}
-          sankey
-              .nodes(energy.nodes)
-              .links(energy.links)
-              .layout(0); // what is this? iterations
+			for (let n of graph.nodes) {
+				n.height = 20;//Math.min(90, Math.max(30, n.len));
+			}
+			sankey
+				.nodes(graph.nodes)
+				.links(graph.links)
+				.layout(0); // what is this? iterations
 
-          var link = svg.append("g").selectAll(".link")
-              .data(energy.links)
-            .enter().append("path")
-              .attr("class", "link")
-              .attr("d", path)
-              .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-              //.style("stroke", function(d) { return d.source.color = color(d.source.name.replace(/ .*/, "")); })
-              .style("stroke", function(d) { return ratingColor(d.source.rating); })
-              .sort(function(a, b) { return b.dy - a.dy; });
+			var link = svg.append("g").selectAll(".link")
+				.data(graph.links)
+				.enter().append("path")
+				.attr("class", "link")
+				.attr("d", path)
+				.style("stroke-width", function (d) { return Math.max(1, d.dy); })
+				//.style("stroke", function(d) { return d.source.color = color(d.source.name.replace(/ .*/, "")); })
+				.style("stroke", function (d) { return ratingColor(d.source.rating); })
+				.sort(function (a, b) { return b.dy - a.dy; });
 
-          link.append("title")
-              .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
-              // title is an SVG standard way of providing tooltips, up to the browser how to render this, so changing the style is tricky
-            
-          var node = svg.append("g").selectAll(".node")
-              .data(energy.nodes)
-			  .enter().append("g")
-              .attr("class", "node")
-              .attr("transform", function(d) {
-                  return "translate(" + d.x + "," + d.y + ")"; 
-              })
-              .call(d3.behavior.drag()
-              .origin(function(d) { return d; })
-              .on("dragstart", function() { this.parentNode.appendChild(this); })
-              .on("drag", dragmove));
+			link.append("title")
+				.text(function (d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+			// title is an SVG standard way of providing tooltips, up to the browser how to render this, so changing the style is tricky
 
-          node.append("rect")
-              .attr("height", function(d) { return d.height;})
-              .attr("width", function(d) { return d.dy; })
-              .style("fill", function(d) { return d.color = ratingColor(d.rating); })
-            .append("title")
-              .text(function(d) { return d.name.replace("\n", " ") + "\n" + d.speakers + "\n" + format(d.value) + ", полезность: " + d.rating + "%" });
-            
-		for(var i = 0; i<3; i++){
-		  node.append("text")
-			  .attr("text-anchor", "middle")
-			  .attr("x", function (d) { return d.dy / 2; })
-			  .attr("y", function (d) { return - d.name.split("\n").length * 16 + 16*i; })
-			  .attr("dy", ".35em")
-			  .style("fill", "#FFF")
-			  .text(function(d) { return d.name.split("\n")[i]; });
-		}
-                        
-          function dragmove(d) {
-            d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height, d3.event.y))) + ")");
-            d3.select(this).attr("transform", "translate(" + (d.x = Math.max(0, Math.min(width - d.dy, d3.event.x))) + "," + d.y + ")");
-            sankey.relayout();
-            link.attr("d", path);
-          }
-        });
+			var node = svg.append("g").selectAll(".node")
+				.data(graph.nodes)
+				.enter().append("g")
+				.attr("class", "node")
+				.attr("transform", function (d) {
+					return "translate(" + d.x + "," + d.y + ")";
+				})
+				.call(d3.behavior.drag()
+					.origin(function (d) { return d; })
+					.on("dragstart", function () { this.parentNode.appendChild(this); })
+					.on("drag", dragmove));
 
-        </script>
+			node.append("rect")
+				.attr("height", function (d) { return d.height; })
+				.attr("width", function (d) { return d.dy; })
+				.style("fill", function (d) { return d.color = ratingColor(d.rating); })
+				.append("title")
+				.text(function (d) { return d.name.replace("\n", " ") + "\n" + d.speakers + "\n" + format(d.value) + ", полезность: " + d.rating + "%" });
+
+			for (var i = 0; i < 3; i++) {
+				node.append("text")
+					.attr("text-anchor", "middle")
+					.attr("x", function (d) { return d.dy / 2; })
+					.attr("y", function (d) { return - d.name.split("\n").length * 16 + 16 * i; })
+					.attr("dy", ".35em")
+					.style("fill", "#FFF")
+					.text(function (d) { return d.name.split("\n")[i]; });
+			}
+
+			function dragmove(d) {
+				d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height, d3.event.y))) + ")");
+				d3.select(this).attr("transform", "translate(" + (d.x = Math.max(0, Math.min(width - d.dy, d3.event.x))) + "," + d.y + ")");
+				sankey.relayout();
+				link.attr("d", path);
+			}
+
+		</script>
 </body>
 </html>

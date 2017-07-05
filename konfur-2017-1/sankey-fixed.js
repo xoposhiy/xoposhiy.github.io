@@ -71,7 +71,7 @@ d3.sankey = function() {
         // big changes here obviously, more comments to follow
         var x0 = d.source.x + d.sy + d.dy / 2,
             x1 = d.target.x + d.ty + d.dy / 2,
-          y0 = d.source.y + nodeWidth,
+          y0 = d.source.y + d.source.height,
           y1 = d.target.y,
           yi = d3.interpolateNumber(y0, y1),
           y2 = yi(curvature),
@@ -116,7 +116,8 @@ d3.sankey = function() {
   function computeNodeValues() {
     nodes.forEach(function(node) {
       node.value = Math.max(
-        d3.sum(node.sourceLinks, value),
+        node.value ? node.value : 0,
+		d3.sum(node.sourceLinks, value),
         d3.sum(node.targetLinks, value)
       );
     });
@@ -139,13 +140,19 @@ d3.sankey = function() {
       // this bit is actually the node sizes (widths)
       //var ky = (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value)
       // this should be only source nodes surely (level 1)
-      var ky = (size[0] - (nodesByBreadth[0].length - 1) * nodePadding) / d3.sum(nodesByBreadth[0], value);
+      var ky = (size[0] - 3 * nodePadding) / d3.sum(nodesByBreadth[0], value) / 2;
       // I'd like them to be much bigger, this calc doesn't seem to fill the space!?
 
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
-          node.x = i;
           node.dy = node.value * ky;
+          if (node.track == 0 || node.track == 2)
+			node.x = (width - node.dy) / 2;
+          else if (node.track == 1)
+			node.x = 80;
+          else if (node.track == 3)
+			node.x = width - node.dy - 80;
+		  else throw "unknown track " + node.track;
         });
       });
 
@@ -230,7 +237,7 @@ d3.sankey = function() {
       
     function ascendingDepth(a, b) {
         //return a.y - b.y; // flows go up
-        return b.x - a.x; // flows go down
+        return a.x - b.x; // flows go down
         //return a.x - b.x;
     }
     }
@@ -254,7 +261,7 @@ d3.sankey = function() {
   function computeNodeDepths() {
         var remainingNodes = nodes,
         nextNodes,
-        y = 0;
+        y = 0.2;
 
         while (remainingNodes.length) {
           nextNodes = [];
