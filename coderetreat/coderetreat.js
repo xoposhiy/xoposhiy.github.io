@@ -1,7 +1,7 @@
 function generateSession(data, sessionIndex){
 	let luck = calculateLuck(data.sessions, sessionIndex);
 	var guests = Array.from(new Array(data.nGuests).keys()).
-		sort((a, b) => (luck[a]||0) - (luck[b]||0));
+		sort((a, b) => (luck[a]||(a/100)) - (luck[b]||(b/100))); // [0..nGuests) sorted by luck
 	for(let leftGuest of data.leftGuests || []){
 		let index = guests.indexOf(+leftGuest);
 		if (index >= 0)
@@ -24,6 +24,7 @@ function generateSession(data, sessionIndex){
 		let guest = guests.shift();
 		let pair = extractRandomExcept(pastPairs[guest], guests);
 		if (pair === null) return null;
+		console.log("settled pair " + guest + " " + pair);
 		pairs[guest] = {table:iTable, pair: pair, expert: false, luck: luck[guest] || 0, history:formatHistory(pastPairs[guest])};
 		pairs[pair] = {table:iTable, pair: guest, expert: false, luck: luck[pair] || 0, history:formatHistory(pastPairs[pair])};
 		iTable++;
@@ -40,10 +41,10 @@ function formatHistory(pastPairs){
 }
 
 function extractRandomExcept(restricted, items){
-	for(let i = 0; i < 10; i++) {
+	for(let i = 0; i < 50; i++) {
 		var index = Math.floor(Math.random()*items.length);
 		var pair = items[index];
-		if (!restricted || restricted.indexOf(pair) < 0){
+		if (!restricted || restricted.indexOf(pair) < 0) {
 			items.splice(index, 1);
 			return pair;
 		}

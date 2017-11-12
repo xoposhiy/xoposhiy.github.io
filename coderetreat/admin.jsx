@@ -1,4 +1,5 @@
-var eventId = "201702-imkn";
+//var eventId = "201702-imkn";
+var eventId = "201711-shpora";
 var ref = firebase.database().ref(eventId);
 
 init();
