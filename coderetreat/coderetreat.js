@@ -17,6 +17,11 @@ function generateSession(data, sessionIndex){
 	var iTable = 0;
 	while (iTable < data.nExperts){
 		let guest = guests.shift();
+		if (pastPairs[guest].indexOf("expert " + iTable) >= 0){
+			let badGuest = guest;
+			guest = guests.shift();
+			guests.unshift(badGuest);
+		}
 		pairs[guest] = {table:iTable, pair:iTable, expert:true, luck: luck[guest]+1 || 1, history:formatHistory(pastPairs[guest])};
 		iTable++;
 	}
@@ -73,7 +78,12 @@ function calculatePastPairs(sessions, currentSessionIndex){
 				res[p].push(pairs[p].pair);
 			}
 			else
-				res[p].push("expert " + pairs[p].pair);
+			{
+				let key = "expert " + pairs[p].pair;
+				if (!res[key]) res[key] = [];
+				res[key].push(p);
+				res[p].push(key);
+			}
 		}
 	}
 	return res;

@@ -1,0 +1,933 @@
+[ {
+  "pairs" : [ null, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 0,
+    "table" : 0
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 1,
+    "table" : 1
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 2
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 3,
+    "table" : 3
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 4
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 5,
+    "table" : 5
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 6
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 7,
+    "table" : 7
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 8
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 9,
+    "table" : 9
+  }, {
+    "expert" : true,
+    "history" : "",
+    "luck" : 1,
+    "pair" : 10,
+    "table" : 10
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 36,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 14,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 13,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 34,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 18,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 27,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 16,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 21,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 37,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 19,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 26,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 28,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 30,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 35,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 22,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 17,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 23,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 31,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 24,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 29,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 33,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 32,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 15,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 25,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 12,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 20,
+    "table" : 17
+  } ]
+}, {
+  "pairs" : [ null, {
+    "expert" : false,
+    "history" : "expert 0",
+    "luck" : 1,
+    "pair" : 23,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "expert 1",
+    "luck" : 1,
+    "pair" : 27,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "expert 2",
+    "luck" : 1,
+    "pair" : 34,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "expert 3",
+    "luck" : 1,
+    "pair" : 26,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "expert 4",
+    "luck" : 1,
+    "pair" : 31,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "expert 5",
+    "luck" : 1,
+    "pair" : 11,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "expert 6",
+    "luck" : 1,
+    "pair" : 39,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "expert 7",
+    "luck" : 1,
+    "pair" : 10,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "expert 8",
+    "luck" : 1,
+    "pair" : 38,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "expert 9",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "expert 10",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 23
+  }, {
+    "expert" : true,
+    "history" : "36",
+    "luck" : 1,
+    "pair" : 0,
+    "table" : 0
+  }, {
+    "expert" : true,
+    "history" : "14",
+    "luck" : 1,
+    "pair" : 1,
+    "table" : 1
+  }, {
+    "expert" : true,
+    "history" : "13",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 2
+  }, {
+    "expert" : true,
+    "history" : "34",
+    "luck" : 1,
+    "pair" : 3,
+    "table" : 3
+  }, {
+    "expert" : true,
+    "history" : "18",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 4
+  }, {
+    "expert" : true,
+    "history" : "27",
+    "luck" : 1,
+    "pair" : 5,
+    "table" : 5
+  }, {
+    "expert" : true,
+    "history" : "16",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 6
+  }, {
+    "expert" : true,
+    "history" : "21",
+    "luck" : 1,
+    "pair" : 7,
+    "table" : 7
+  }, {
+    "expert" : true,
+    "history" : "37",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 8
+  }, {
+    "expert" : true,
+    "history" : "19",
+    "luck" : 1,
+    "pair" : 9,
+    "table" : 9
+  }, {
+    "expert" : true,
+    "history" : "26",
+    "luck" : 1,
+    "pair" : 10,
+    "table" : 10
+  }, {
+    "expert" : false,
+    "history" : "28",
+    "luck" : 0,
+    "pair" : 1,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "30",
+    "luck" : 0,
+    "pair" : 25,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "35",
+    "luck" : 0,
+    "pair" : 24,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "22",
+    "luck" : 0,
+    "pair" : 4,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "17",
+    "luck" : 0,
+    "pair" : 2,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "23",
+    "luck" : 0,
+    "pair" : 32,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "31",
+    "luck" : 0,
+    "pair" : 36,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "24",
+    "luck" : 0,
+    "pair" : 33,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "29",
+    "luck" : 0,
+    "pair" : 5,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "33",
+    "luck" : 0,
+    "pair" : 28,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "32",
+    "luck" : 0,
+    "pair" : 30,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "15",
+    "luck" : 0,
+    "pair" : 3,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "25",
+    "luck" : 0,
+    "pair" : 37,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "12",
+    "luck" : 0,
+    "pair" : 29,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "20",
+    "luck" : 0,
+    "pair" : 35,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 9,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "",
+    "luck" : 0,
+    "pair" : 7,
+    "table" : 22
+  } ]
+}, {
+  "pairs" : [ null, {
+    "expert" : false,
+    "history" : "expert 0,23",
+    "luck" : 1,
+    "pair" : 34,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "expert 1,27",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "expert 2,34",
+    "luck" : 1,
+    "pair" : 39,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "expert 3,26",
+    "luck" : 1,
+    "pair" : 19,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "expert 4,31",
+    "luck" : 1,
+    "pair" : 35,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "expert 5,11",
+    "luck" : 1,
+    "pair" : 12,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "expert 6,39",
+    "luck" : 1,
+    "pair" : 21,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "expert 7,10",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "expert 8,38",
+    "luck" : 1,
+    "pair" : 15,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "expert 9,8",
+    "luck" : 1,
+    "pair" : 20,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "expert 10,6",
+    "luck" : 1,
+    "pair" : 38,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "36,expert 0",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "14,expert 1",
+    "luck" : 1,
+    "pair" : 17,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "13,expert 2",
+    "luck" : 1,
+    "pair" : 22,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "34,expert 3",
+    "luck" : 1,
+    "pair" : 9,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "18,expert 4",
+    "luck" : 1,
+    "pair" : 37,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "27,expert 5",
+    "luck" : 1,
+    "pair" : 13,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "16,expert 6",
+    "luck" : 1,
+    "pair" : 36,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "21,expert 7",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "37,expert 8",
+    "luck" : 1,
+    "pair" : 10,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "19,expert 9",
+    "luck" : 1,
+    "pair" : 7,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "26,expert 10",
+    "luck" : 1,
+    "pair" : 14,
+    "table" : 18
+  }, {
+    "expert" : true,
+    "history" : "28,1",
+    "luck" : 1,
+    "pair" : 0,
+    "table" : 0
+  }, {
+    "expert" : true,
+    "history" : "30,25",
+    "luck" : 1,
+    "pair" : 1,
+    "table" : 1
+  }, {
+    "expert" : true,
+    "history" : "35,24",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 2
+  }, {
+    "expert" : true,
+    "history" : "22,4",
+    "luck" : 1,
+    "pair" : 3,
+    "table" : 3
+  }, {
+    "expert" : true,
+    "history" : "17,2",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 4
+  }, {
+    "expert" : true,
+    "history" : "23,32",
+    "luck" : 1,
+    "pair" : 5,
+    "table" : 5
+  }, {
+    "expert" : true,
+    "history" : "31,36",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 6
+  }, {
+    "expert" : true,
+    "history" : "24,33",
+    "luck" : 1,
+    "pair" : 7,
+    "table" : 7
+  }, {
+    "expert" : true,
+    "history" : "29,5",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 8
+  }, {
+    "expert" : true,
+    "history" : "33,28",
+    "luck" : 1,
+    "pair" : 9,
+    "table" : 9
+  }, {
+    "expert" : true,
+    "history" : "32,30",
+    "luck" : 1,
+    "pair" : 10,
+    "table" : 10
+  }, {
+    "expert" : false,
+    "history" : "15,3",
+    "luck" : 0,
+    "pair" : 1,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "25,37",
+    "luck" : 0,
+    "pair" : 5,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "12,29",
+    "luck" : 0,
+    "pair" : 18,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "20,35",
+    "luck" : 0,
+    "pair" : 16,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "9",
+    "luck" : 0,
+    "pair" : 11,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "7",
+    "luck" : 0,
+    "pair" : 3,
+    "table" : 16
+  } ]
+}, {
+  "pairs" : [ null, {
+    "expert" : false,
+    "history" : "expert 0,23,34",
+    "luck" : 1,
+    "pair" : 28,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "expert 1,27,8",
+    "luck" : 1,
+    "pair" : 31,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "expert 2,34,39",
+    "luck" : 1,
+    "pair" : 17,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "expert 3,26,19",
+    "luck" : 1,
+    "pair" : 22,
+    "table" : 19
+  }, {
+    "expert" : false,
+    "history" : "expert 4,31,35",
+    "luck" : 1,
+    "pair" : 14,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "expert 5,11,12",
+    "luck" : 1,
+    "pair" : 26,
+    "table" : 22
+  }, {
+    "expert" : true,
+    "history" : "expert 6,39,21",
+    "luck" : 2,
+    "pair" : 7,
+    "table" : 7
+  }, {
+    "expert" : false,
+    "history" : "expert 7,10,2",
+    "luck" : 1,
+    "pair" : 29,
+    "table" : 20
+  }, {
+    "expert" : true,
+    "history" : "expert 8,38,15",
+    "luck" : 2,
+    "pair" : 8,
+    "table" : 8
+  }, {
+    "expert" : true,
+    "history" : "expert 9,8,20",
+    "luck" : 2,
+    "pair" : 9,
+    "table" : 9
+  }, {
+    "expert" : true,
+    "history" : "expert 10,6,38",
+    "luck" : 2,
+    "pair" : 10,
+    "table" : 10
+  }, {
+    "expert" : false,
+    "history" : "36,expert 0,6",
+    "luck" : 1,
+    "pair" : 21,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "14,expert 1,17",
+    "luck" : 1,
+    "pair" : 25,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "13,expert 2,22",
+    "luck" : 1,
+    "pair" : 5,
+    "table" : 13
+  }, {
+    "expert" : false,
+    "history" : "34,expert 3,9",
+    "luck" : 1,
+    "pair" : 19,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "18,expert 4,37",
+    "luck" : 1,
+    "pair" : 33,
+    "table" : 15
+  }, {
+    "expert" : false,
+    "history" : "27,expert 5,13",
+    "luck" : 1,
+    "pair" : 3,
+    "table" : 16
+  }, {
+    "expert" : false,
+    "history" : "16,expert 6,36",
+    "luck" : 1,
+    "pair" : 30,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "21,expert 7,4",
+    "luck" : 1,
+    "pair" : 15,
+    "table" : 14
+  }, {
+    "expert" : false,
+    "history" : "37,expert 8,10",
+    "luck" : 1,
+    "pair" : 32,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "19,expert 9,7",
+    "luck" : 1,
+    "pair" : 12,
+    "table" : 11
+  }, {
+    "expert" : false,
+    "history" : "26,expert 10,14",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 19
+  }, {
+    "expert" : true,
+    "history" : "28,1,expert 0",
+    "luck" : 2,
+    "pair" : 6,
+    "table" : 6
+  }, {
+    "expert" : false,
+    "history" : "30,25,expert 1",
+    "luck" : 1,
+    "pair" : 27,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "35,24,expert 2",
+    "luck" : 1,
+    "pair" : 13,
+    "table" : 12
+  }, {
+    "expert" : false,
+    "history" : "22,4,expert 3",
+    "luck" : 1,
+    "pair" : 6,
+    "table" : 22
+  }, {
+    "expert" : false,
+    "history" : "17,2,expert 4",
+    "luck" : 1,
+    "pair" : 24,
+    "table" : 21
+  }, {
+    "expert" : false,
+    "history" : "23,32,expert 5",
+    "luck" : 1,
+    "pair" : 1,
+    "table" : 18
+  }, {
+    "expert" : false,
+    "history" : "31,36,expert 6",
+    "luck" : 1,
+    "pair" : 8,
+    "table" : 20
+  }, {
+    "expert" : false,
+    "history" : "24,33,expert 7",
+    "luck" : 1,
+    "pair" : 18,
+    "table" : 17
+  }, {
+    "expert" : false,
+    "history" : "29,5,expert 8",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 23
+  }, {
+    "expert" : false,
+    "history" : "33,28,expert 9",
+    "luck" : 1,
+    "pair" : 20,
+    "table" : 24
+  }, {
+    "expert" : false,
+    "history" : "32,30,expert 10",
+    "luck" : 1,
+    "pair" : 16,
+    "table" : 15
+  }, {
+    "expert" : true,
+    "history" : "15,3,1",
+    "luck" : 1,
+    "pair" : 0,
+    "table" : 0
+  }, {
+    "expert" : true,
+    "history" : "25,37,5",
+    "luck" : 1,
+    "pair" : 1,
+    "table" : 1
+  }, {
+    "expert" : true,
+    "history" : "12,29,18",
+    "luck" : 1,
+    "pair" : 2,
+    "table" : 2
+  }, {
+    "expert" : true,
+    "history" : "20,35,16",
+    "luck" : 1,
+    "pair" : 3,
+    "table" : 3
+  }, {
+    "expert" : true,
+    "history" : "9,11",
+    "luck" : 1,
+    "pair" : 4,
+    "table" : 4
+  }, {
+    "expert" : true,
+    "history" : "7,3",
+    "luck" : 1,
+    "pair" : 5,
+    "table" : 5
+  } ]
+} ]

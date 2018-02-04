@@ -1,5 +1,6 @@
 //var eventId = "201702-imkn";
-var eventId = "201711-shpora";
+//var eventId = "201711-shpora";
+var eventId = "201802-kampus";
 var ref = firebase.database().ref(eventId);
 
 init();
@@ -39,10 +40,13 @@ function updateUI(name, data){
 
 function init(){
 	var provider = new firebase.auth.GoogleAuthProvider();
-	firebase.auth().signInWithPopup(provider).catch(function(e){console.log(e);});
+	firebase.auth().signInWithPopup(provider).catch(function(e){console.log(e);}).then(function(){
 
-	ref.on('value', function(sn){
-		var data = sn.val();
-		updateUI(sn.key, data);
+		ref.on('value', function(sn){
+			var data = sn.val();
+			updateUI(sn.key, data);
+		});
+	
 	});
+
 }
