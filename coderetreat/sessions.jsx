@@ -21,7 +21,7 @@ function Page(props){
 	}
 	return (<div className="container">
 		<h1>Сессия № {sessionIndex+1}</h1>
-		<h3>Заполни анкету <a href="bit.ly/shpora-cr">bit.ly/shpora-cr</a></h3>
+		<h3>Заполни анкету <a href="bit.ly/cr201802">bit.ly/cr201802</a></h3>
 		<div className="guests-distribution">
 			{items}
 		</div>

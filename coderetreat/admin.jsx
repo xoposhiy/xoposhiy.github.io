@@ -5,6 +5,10 @@ var ref = firebase.database().ref(eventId);
 
 init();
 
+function setSession(sessionIndex){
+	ref.child("currentSessionIndex").set(sessionIndex);	
+}
+
 function onGenerateClick(data, sessionIndex){
 	var pairs = generateSession(data, sessionIndex);
 	if (pairs){
@@ -16,17 +20,23 @@ function onGenerateClick(data, sessionIndex){
 }
 
 function Page(props){
-	var sessionIndex = 0;
+	var curSession = props.data.currentSessionIndex;
+	var sessionsCount = 0;
 	if (props.data.sessions)
-		sessionIndex = props.data.sessions.length;
+		sessionsCount = props.data.sessions.length;
 	return (<div className="container">
 		<h1>Code Retreat {props.name}</h1>
 		<div>nGuests: {props.data.nGuests}</div>
 		<div>nExperts: {props.data.nExperts}</div>
-		<div>nSessions: {sessionIndex}</div>
+		<div>nSessions: {sessionsCount}</div>
 		<div>nLeftGuests: {(props.data.leftGuests || []).length}</div>
-		<input id="sessionIndex" value={sessionIndex} />
-		<button onClick={() => onGenerateClick(props.data, sessionIndex)}>Generate session</button>
+		<button onClick={() => onGenerateClick(props.data, sessionsCount)}>Generate session</button>
+		<br/>
+		<button className={"current-" + (curSession==0)} onClick={() => setSession(0)}>session=0</button>
+		<button className={"current-" + (curSession==1)} onClick={() => setSession(1)}>session=1</button>
+		<button className={"current-" + (curSession==2)} onClick={() => setSession(2)}>session=2</button>
+		<button className={"current-" + (curSession==3)} onClick={() => setSession(3)}>session=3</button>
+		<button className={"current-" + (curSession==4)} onClick={() => setSession(4)}>session=4</button>
 	</div>);
 }
 

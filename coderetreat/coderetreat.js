@@ -1,7 +1,8 @@
 function generateSession(data, sessionIndex){
+	let ws = data.guestInterestRate;
 	let luck = calculateLuck(data.sessions, sessionIndex);
 	var guests = Array.from(new Array(data.nGuests).keys()).
-		sort((a, b) => (luck[a]||(a/100)) - (luck[b]||(b/100))); // [0..nGuests) sorted by luck
+		sort((a, b) => (luck[a]||0) - (luck[b]||0) + (ws[b]||0)/100 - (ws[a]||0)/100); // [0..nGuests) sorted by luck
 	for(let leftGuest of data.leftGuests || []){
 		let index = guests.indexOf(+leftGuest);
 		if (index >= 0)
@@ -17,7 +18,7 @@ function generateSession(data, sessionIndex){
 	var iTable = 0;
 	while (iTable < data.nExperts){
 		let guest = guests.shift();
-		if (pastPairs[guest].indexOf("expert " + iTable) >= 0){
+		if (pastPairs[guest] && pastPairs[guest].indexOf("expert " + iTable) >= 0){
 			let badGuest = guest;
 			guest = guests.shift();
 			guests.unshift(badGuest);
