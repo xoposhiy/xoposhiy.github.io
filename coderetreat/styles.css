@@ -1,0 +1,42 @@
+.guest-info{
+    float:left;
+    margin: 5px;
+    padding:5px;
+}
+.with-expert {
+    background-color: yellow;
+}
+.lucky {
+    font-weight: bold;
+}
+.hidden-link{
+    color:transparent;
+    font-size: small;
+}
+.hidden-link:hover{
+    color:gray;
+}
+.current-true{
+    background-color: yellow;
+}
+
+.loader {
+    width:100px;
+    margin: 100px auto;
+}
+
+.nopair {
+    background-color: orangered;
+}
+
+.session-history{
+    margin-top: 1000px;
+}
+
+table.table {
+    width:500px;
+}
+
+.same-group {
+    background-color: salmon;
+}
