@@ -15,6 +15,7 @@
 }
 .hidden-link:hover{
     color:gray;
+    font-weight: lighter;
 }
 .current-true{
     background-color: yellow;
