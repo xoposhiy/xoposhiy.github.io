@@ -43,3 +43,10 @@ table.table {
 .same-group {
     background-color: salmon;
 }
+
+.admin-sessions-remove-last{
+    margin-left: 10px;
+}
+.admin-sessions-create {
+    margin-left: 10px;    
+}
