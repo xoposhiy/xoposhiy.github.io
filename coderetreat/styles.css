@@ -3,6 +3,10 @@
     margin: 5px;
     padding:5px;
     text-align: center;
+}
+
+
+.guest-info-bynumbers{
     width:140px;
 }
 .with-expert {
@@ -30,10 +34,6 @@
 
 .nopair {
     background-color: orangered;
-}
-
-.session-history{
-    margin-top: 1000px;
 }
 
 .same-group {
