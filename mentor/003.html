@@ -61,7 +61,7 @@
 			Постановка задачи
 			<span class="score">0/3</span>
 		</h1>
-		<p>Ульяна настроила свой компьютер так, почитала вводные документы про ваш проект и процесс.
+		<p>Ульяна настроила свой компьютер, почитала вводные документы про ваш проект и процесс.
 Поучаствовала в первом скрам-митинге, пообедала вместе со всеми и познакомилась с командой.</p>
 <p>Теперь, когда она освоилась, можно дать ей первую задачу.
 Особо не готовившись к этому, ты выбрал несложную задачу из плана на эту итерацию:</p>
@@ -108,7 +108,21 @@
 					<p class="quiz__explanation">Неправильно оценил срок на всю задачу; не обсудили, стоит ли делать рефакторинг и сколько времени он может занять</p>
 			</div>
 			<div class="quiz">
-				<input  autocomplete="off" id='1quizBlock2' name=group2noMult type="checkbox"  disabled>
+				<input  autocomplete="off" id='1quizBlock4' name=group2noMult type="checkbox"  disabled>
+				<label class="" title="Неправильный вариант" for="1quizBlock4" >
+					В описание ситуации
+				</label>
+			</div>
+			<div class="quiz">
+				<input  autocomplete="off" id='1quizBlock6' name=group3noMult type="checkbox"  disabled>
+				<label class="right-quiz" title="Правильный вариант" for="1quizBlock6" >
+					В настройке коммуникаций
+						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
+				</label>
+					<p class="quiz__explanation">Cтоило рассказать, кто из разработчиков делал предыдущий такой отчет</p>
+			</div>
+			<div class="quiz">
+				<input  autocomplete="off" id='1quizBlock2' name=group4noMult type="checkbox"  disabled>
 				<label class="right-quiz" title="Правильный вариант" for="1quizBlock2" >
 					В определении контрольной точки
 						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
@@ -116,24 +130,10 @@
 					<p class="quiz__explanation">Недостаточно считать контрольной точкой окончание работы, обязательно должны быть промежуточные этапы, когда можно увидеть, что решение идет не в ту сторону</p>
 			</div>
 			<div class="quiz">
-				<input  autocomplete="off" id='1quizBlock5' name=group3noMult type="checkbox"  disabled>
+				<input  autocomplete="off" id='1quizBlock5' name=group5noMult type="checkbox"  disabled>
 				<label class="" title="Неправильный вариант" for="1quizBlock5" >
 					В мотивации, значимости и важности задачи
 				</label>
-			</div>
-			<div class="quiz">
-				<input  autocomplete="off" id='1quizBlock4' name=group4noMult type="checkbox"  disabled>
-				<label class="" title="Неправильный вариант" for="1quizBlock4" >
-					В описание ситуации
-				</label>
-			</div>
-			<div class="quiz">
-				<input  autocomplete="off" id='1quizBlock6' name=group5noMult type="checkbox"  disabled>
-				<label class="right-quiz" title="Правильный вариант" for="1quizBlock6" >
-					В настройке коммуникаций
-						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
-				</label>
-					<p class="quiz__explanation">Cтоило рассказать, кто из разработчиков делал предыдущий такой отчет</p>
 			</div>
 	</div>
 	<div class="quiz-block-delimiter"></div>
@@ -191,30 +191,30 @@
 				</label>
 			</div>
 			<div class="quiz">
-				<input  autocomplete="off" id='3quizBlock3' name=group1noMult type="checkbox"  disabled>
-				<label class="right-quiz" title="Правильный вариант" for="3quizBlock3" >
-					Ульяна не задавала вопросов, потому что постеснялась, побоялась или хотела продемонстрировать свою самостоятельность. Но все это в ущерб продуктивности.
-						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
-				</label>
-			</div>
-			<div class="quiz">
-				<input  autocomplete="off" id='3quizBlock2' name=group2noMult type="checkbox"  disabled>
+				<input  autocomplete="off" id='3quizBlock2' name=group1noMult type="checkbox"  disabled>
 				<label class="right-quiz" title="Правильный вариант" for="3quizBlock2" >
 					Ульяна решила отрефакторить что-нибудь (а там есть что — тот же сериализатор давно пора) и прибраться в коде. Хотя времени на это так-то нет, надо сначала форму зарелизить.
 						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
 				</label>
 			</div>
 			<div class="quiz">
-				<input  autocomplete="off" id='3quizBlock4' name=group3noMult type="checkbox"  disabled>
+				<input  autocomplete="off" id='3quizBlock4' name=group2noMult type="checkbox"  disabled>
 				<label class="right-quiz" title="Правильный вариант" for="3quizBlock4" >
 					Ульяна забудет про какой-нибудь очевидный кусок задачи, который аналитик не стал даже описывать в спецификации.
 						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
 				</label>
 			</div>
 			<div class="quiz">
-				<input  autocomplete="off" id='3quizBlock5' name=group4noMult type="checkbox"  disabled>
+				<input  autocomplete="off" id='3quizBlock5' name=group3noMult type="checkbox"  disabled>
 				<label class="right-quiz" title="Правильный вариант" for="3quizBlock5" >
 					Ульяна как-то по своему додумает и интерпретирует спецификацию. Ведь её не было на презентации аналитики. И нам придётся всё переделывать.
+						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
+				</label>
+			</div>
+			<div class="quiz">
+				<input  autocomplete="off" id='3quizBlock3' name=group4noMult type="checkbox"  disabled>
+				<label class="right-quiz" title="Правильный вариант" for="3quizBlock3" >
+					Ульяна не задавала вопросов, потому что постеснялась, побоялась или хотела продемонстрировать свою самостоятельность. Но все это в ущерб продуктивности.
 						<i class="glyphicon glyphicon-ok" style="color: green" title="Правильный вариант"></i>
 				</label>
 			</div>
