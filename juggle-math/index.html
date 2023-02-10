@@ -66,6 +66,7 @@
 						<!--
 							https://jugglinglab.org/anim?pattern=(4,4)(4,0);width=200;height=300;colors={orange};hands=(20)(0).(20)(20).(0)(20).(20)(20).
 						-->
+						<img class="fragment fade-in" src="multiplexing.gif" width="200" height="250" alt="1" title="5">
 					</section>
 					<section>
 						<h2>Начать с основного случая</h2>
@@ -300,10 +301,12 @@
 						<p class="fragment">чтобы $next(t)$ была сюрьективна</p>
 					</section>
 					<section style="text-align:left;" data-auto-animate>
-						<p>Паттерн заданный высотами $h(t)$ корректен тогда и только тогда, когда</p>
-						<p class="fragment">$next(t) = t + h(t)$ — биекция</p>
+						<p>Паттерн заданный высотами $h(t)$ корректен</p>
+						<p class="fragment"> $\iff$ $next(t) = t + h(t)$ — биекция</p>
+						<p class="fragment">Паттерн $h_0 ... h_{p-1}$ корректен $\iff$</p>
+						<p class="fragment">$n(t) = (t + h_t) \mod p \ $ — биекция на $0..p-1$</p>
 					</section>
-					<section style="text-align:left;" data-auto-animate>
+					<!--section style="text-align:left;" data-auto-animate>
 						<p>Пусть теперь $h(t)$ имеет период $p$</p>
 						<p>$h(t) = h[t\mod p]$</p>
 						<p class="fragment">$next(t + kp) = t + kp + h(t + kp)$</p>
@@ -317,20 +320,11 @@
 						<p>$next$ как бы периодична, но с линейным сдвигом на период каждый период.</p>
 						<p class="fragment">$n(t) = next(t) \mod p \quad (t \in \Z_p)$</p>
 						<p class="fragment">$next(t)$ — биекция $\iff$ $n(t)$ — биекция?</p>
-					</section>
+					</section-->
 					<section style="text-align:left;">
-						<h2 class="fragment">Permutation Theorem</h2>
+						<h2>Permutation Theorem</h2>
 						<p>Паттерн $h_0 ... h_{p-1}$ корректный $\iff$</p>
 						<p>$(h_t + t) \mod p$ — перестановка $0 ... p-1$</p>
-					</section>
-					<section>
-						<h2>331</h2>
-						<p class="fragment">3 3 1</p>
-						<p class="fragment" style="color:grey">+ 0 1 2</p>
-						<p class="fragment">3 4 3</p>
-						<p class="fragment" style="color:grey">mod 3</p>
-						<p class="fragment">0 1 0</p>
-						<p class="fragment">❌</p>
 					</section>
 					<section>
 						<h2>1331</h2>
@@ -640,6 +634,9 @@
 						<li><a href="https://sharmaeklavya2.github.io/blog/juggling-theory.html">The Math behind Juggling, Eklavya's Blog</a></li>
 						<li><a href="https://jugglers.ru">https://jugglers.ru</a></li>
 					</ul>
+				</section>
+				<section>
+					<img src="lecture9-qr.png">
 				</section>
 			</div>
 		</div>
