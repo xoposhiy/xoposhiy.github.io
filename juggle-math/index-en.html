@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			.small {
+				font-size:18pt;
+			}
+			.reveal .slides section .fragment.step-fade-in-then-out {
+				opacity: 0;
+				display: none; }
+			.reveal .slides section .fragment.step-fade-in-then-out.current-fragment {
+				opacity: 1;
+				display: inline; }
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="3-ball_cascade_movie.gif" alt="3 ball cascade">
+					<div class="r-fit-text">Math of juggling</div>
+					<p>
+						<small>Pavel Egorov</small>
+					</p>
+				</section>
+				<section>
+					<img src="Early_Egyptian_juggling_art.jpg" alt="Egyptian juggling">
+					<p>
+						<small>Egypt 1994 — 1781 B.C</small>
+					</p>
+				</section>
+
+
+				<section>
+					<section data-markdown>
+						## Mathematical approach
+
+						1. Start with the main case.
+						2. Highlight the essential.
+					</section>
+					<section>
+						<img class="fragment fade-in-then-semi-out" src="3.gif">
+						<!--
+							https://jugglinglab.org/anim?pattern=3;width=200;height=300;colors={red}
+						-->
+						<img class="fragment fade-in-then-semi-out" src="51.gif">
+						<!--
+							https://jugglinglab.org/anim?pattern=51;width=200;height=300;colors={blue}
+						-->
+						<img class="fragment fade-in-then-semi-out" src="551133.gif">
+						<!--
+							https://jugglinglab.org/anim?pattern=551133;width=200;height=300;colors={green}
+						-->
+						<img class="fragment fade-in-then-semi-out" src="columns.gif">
+						<!--
+							https://jugglinglab.org/anim?pattern=(4,4)(4,0);width=200;height=300;colors={orange};hands=(20)(0).(20)(20).(0)(20).(20)(20).
+						-->
+						<img class="fragment fade-in" src="multiplexing.gif" width="200" height="250" alt="1" title="5">
+					</section>
+					<section>
+						<h2>Start with the main case</h2>
+						<ul>
+							<li>The right and left hands throw alternately (asynchronous juggling).</li>
+							<li>We throw/catch no more than one object at a time (monoplex juggling).</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Highlight the essential</h2>
+						<img class="fade-in-then-semi-out" src="551133.gif">
+					</section>
+					<section>
+						<div>The throws differ in height.</div>
+						<div class="fragment">How should we measure "height"?</div>
+					</section>
+					<section>
+						<div>The height of a throw is how many beats must pass before this ball can be thrown again.</div>
+					</section>
+					<section>
+						<img src="siteswap-1.jpg" width="50%" alt="">
+						<p>
+							<small>1978, Dave Storer, "A Written Notation for Describing Ball Juggling Tricks"</small>
+						</p>
+					</section>
+					<section>
+						<img src="siteswap-2.jpg" width="50%" alt="">
+						<p>
+							<small><a href="https://web.archive.org/web/20140717061615/http://www.juggle.org/history/archives/jugmags/34-1/34-1,p11.htm">
+								1982, Jeff Walker, "Variations for numbers jugglers"
+							</a></small>
+						</p>
+					</section>
+					<section>
+						<img src="1.gif" alt="1">
+						<div>111... = 1</div>
+					</section>
+					<section>
+						<img src="3-mixed.gif" alt="1">
+						<div class="fragment">333... = 3</div>
+					</section>
+					<section>
+						<img src="40.gif" alt="1">
+						<div class="fragment" style="display:relative;margin-top:-220px; margin-bottom:180px; margin-left:220px">☕</div>
+						<div class="fragment">4242... = 42</div>
+					</section>
+					<section>
+						<img src="4-mixed.gif" alt="1">
+						<div class="fragment">4444... = 4</div>
+					</section>
+					<section>
+						<img id="5" src="5-mixed.gif" alt="1" title="5">
+						<div class="fragment">555... = 5</div>
+					</section>
+					<section>
+						<img style="float:right; background-color:white; width:33%; margin-left:8px" src="siteswap.png">
+						<table style="font-size: smaller">
+							<tr>
+								<td>0</td>
+								<td>empty hand</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>low throw to other hand</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>hold the ball in hand</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>regular throw to other hand</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>regular throw to the same hand</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>high throw to other hand</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>high throw to the same hand</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<img src="51-mixed.gif" alt="51">
+						<div class="fragment">51</div>
+					</section>
+					<section>
+						<img src="4440.gif">
+						<div class="fragment">4440</div>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Is any pattern jugglable?</h2>
+					</section>
+					<section data-transition="none">
+						<h3>331?</h3>
+						<pre class="fragment"><code class="language-plaintext">
+
+
+
+							3 3 1 3 3 1 ...
+
+
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>331?</h3>
+						<pre><code class="language-plaintext">
+							 _____
+							↑     |
+							|     ↓
+							3 3 1 3 3 1 ...
+
+
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>331?</h3>
+						<pre><code class="language-plaintext">
+							 _____
+							↑     |
+							|     ↓
+							3 3 1 3 3 1 ...
+							  ↓     ↑
+							   ‾‾‾‾‾ 
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>331?</h3>
+						<pre><code class="language-plaintext">
+							 _____    two balls land in the same hand :(
+							↑    _| /
+							|   ↑ ↓/
+							3 3 1 3 3 1 ...
+							  ↓     ↑
+							   ‾‾‾‾‾  
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h3>1331?</h3>
+					</section>
+					<section data-auto-animate data-transition="none">
+						<h3>1331?</h3>
+						<pre><code class="language-plaintext">
+
+
+							1 3 3 1 1 3 3 1 ...
+
+
+
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>1331?</h3>
+						<pre><code class="language-plaintext">
+							 _ 
+							| ↓
+							1 3 3 1 1 3 3 1 ...
+
+
+
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>1331?</h3>
+						<pre><code class="language-plaintext">
+							 _ 
+							| ↓
+							1 3 3 1 1 3 3 1 ...
+							  ↓     ↑  
+							   ‾‾‾‾‾   
+
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>1331?</h3>
+						<pre><code class="language-plaintext">
+							 _ 
+							| ↓
+							1 3 3 1 1 3 3 1 ...
+							  ↓ |   ↑ ↑
+							   ‾|‾‾‾  |
+							     ‾‾‾‾‾   
+						</code></pre>
+					</section>
+					<section data-transition="none">
+						<h3>1331?</h3>
+						<pre><code class="language-plaintext">
+							 _      nothing to throw :(
+							| ↓    /
+							1 3 3 1 1 3 3 1 ...
+							  ↓ |   ↑ ↑
+							   ‾|‾‾‾  |
+							     ‾‾‾‾‾   
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2 class="r-fit-text">Permutation Theorem</h2>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p class="fragment">$next(t)$ — ближайший момент, когда можно будет бросить мяч, который был брошен в момент $t$.</p>
+						<p class="fragment">$next(t) = t + h(t)$</p>
+						<p class="fragment">$next(t)$ — ещё и момент приземления мяча, брошенного в $t$.</p>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p>$next(t)$ — ещё и момент приземления мяча, брошенного в $t$.</p>
+						<p class="fragment">Чтобы два мяча не падали в одну руку, нужно</p>
+						<p class="fragment fade-in-then-semi-out">чтобы $next(t)$ не повторялись</p>
+						<p class="fragment">чтобы $next(t)$ была инъективна</p>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p>$next(t)$ — ещё и момент приземления мяча, брошенного в $t$.</p>
+						<p class="fragment">Чтобы не было бросков из пустой руки, нужно</p>
+						<p class="fragment">в каждый* момент приземлялся какой-то мяч</p>
+						<p class="fragment">$next(t) = t + 0$ если в $t$ ничего не бросаем</p>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p>$next(t)$ — ещё и момент приземления мяча, брошенного в $t$.</p>
+						<p>Чтобы не было бросков из пустой руки, нужно</p>
+						<p class="fragment fade-in-then-semi-out">чтобы $\forall t \exists s: next(s) = t$</p>
+						<p class="fragment">чтобы $next(t)$ была сюрьективна</p>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p>Паттерн заданный высотами $h(t)$ корректен</p>
+						<p class="fragment"> $\iff$ $next(t) = t + h(t)$ — биекция</p>
+						<p class="fragment">Паттерн $h_0 ... h_{p-1}$ корректен $\iff$</p>
+						<p class="fragment">$n(t) = (t + h_t) \mod p \ $ — биекция на $0..p-1$</p>
+					</section>
+					<!--section style="text-align:left;" data-auto-animate>
+						<p>Пусть теперь $h(t)$ имеет период $p$</p>
+						<p>$h(t) = h[t\mod p]$</p>
+						<p class="fragment">$next(t + kp) = t + kp + h(t + kp)$</p>
+						<p class="fragment">$next(t + kp) = kp + t + h(t)$</p>
+						<p class="fragment">$next(t + kp) = next(t) + kp$</p>
+						<p class="fragment">$next$ как бы периодична, но с линейным сдвигом на период каждый период.</p>
+					</section>
+					<section style="text-align:left;" data-auto-animate>
+						<p>Пусть теперь $h(t)$ имеет период $p$</p>
+						<p>$next(t + kp) = next(t) + kp$</p>
+						<p>$next$ как бы периодична, но с линейным сдвигом на период каждый период.</p>
+						<p class="fragment">$n(t) = next(t) \mod p \quad (t \in \Z_p)$</p>
+						<p class="fragment">$next(t)$ — биекция $\iff$ $n(t)$ — биекция?</p>
+					</section-->
+					<section style="text-align:left;">
+						<h2>Permutation Theorem</h2>
+						<p>Паттерн $h_0 ... h_{p-1}$ корректный $\iff$</p>
+						<p>$(h_t + t) \mod p$ — перестановка $0 ... p-1$</p>
+					</section>
+					<section>
+						<h2>1331</h2>
+						<p class="fragment">1 3 3 1</p>
+						<p class="fragment" style="color:grey">+ 0 1 2 3</p>
+						<p class="fragment">1 4 5 4</p>
+						<p class="fragment" style="color:grey">mod 4</p>
+						<p class="fragment">1 0 1 0</p>
+						<p class="fragment">❌</p>
+					</section>
+					<section>
+						<h2>531</h2>
+						<p class="fragment">5 3 1</p>
+						<p class="fragment" style="color:grey">+ 0 1 2</p>
+						<p class="fragment">5 4 3</p>
+						<p class="fragment" style="color:grey">mod 3</p>
+						<p class="fragment">2 1 0</p>
+						<p class="fragment">✔</p>
+					</section>
+					<section>
+						<p>Высоты, начиная с 10 обозначают буквами A..Z</p>
+						<p class="fragment">Поэтому некоторые слова можно жонглировать :)</p>
+					</section>
+					<section>
+						<p>Некоторые жонглируемые слова:</p>
+						<p><code>THEOREM</code>, <code>MIME</code>, <code>LISP</code>, <code>EMAIL</code>, <code>NERDS</code>...</p>
+						<a href="https://github.com/adekcz/JugglableWords/blob/master/SiteSwapsWords/src/resultas.txt" class="fragment">github.com/adekcz/JugglableWords</a>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						Сколько шаров нужно, для жонглирования <code>THEOREM</code>?
+					</section>
+					<section>
+						Сколько шаров нужно, для жонглирования <code>531</code>?
+					</section>
+					<section data-auto-animate>
+						<h4>Сколько мячей нужно, для жогнлирования паттерна?</h4>
+						<table>
+							<tr>
+								<th>Паттерн</th>
+								<th>Количество мячей</th>
+							</tr>
+							<tr>
+								<td>«0»</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>«1»</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>«2»</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>«3»</td>
+								<td>3</td>
+							</tr>
+							<tr>
+								<td>«4»</td>
+								<td>4</td>
+							</tr>
+							<tr>
+								<td>«p»</td>
+								<td>p</td>
+							</tr>
+						</table>
+					</section>
+					<section data-auto-animate>
+						<h4>Сколько мячей нужно, для жогнлирования паттерна?</h4>
+						<table>
+							<tr>
+								<th>Паттерн</th>
+								<th>Количество мячей</th>
+							</tr>
+							<tr>
+								<td>«p»</td>
+								<td>p</td>
+							</tr>
+							<tr class="fragment">
+								<td>«51»</td>
+								<td>3</td>
+							</tr>
+							<tr class="fragment">
+								<td>«441»</td>
+								<td>3</td>
+							</tr>
+							<tr class="fragment">
+								<td>«55500»</td>
+								<td>3</td>
+							</tr>
+							<tr class="fragment">
+								<td>«53»</td>
+								<td>4</td>
+							</tr>
+							<tr class="fragment">
+								<td>«5564»</td>
+								<td>5</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Average Theorem</h2>
+						<p>Количество мячей = среднее чисел в паттерне</p>
+					</section>
+					<section data-auto-animate>
+						<h2>531</h2>
+						<p class="fragment">Как можно локальным изменением сделать из этого паттерна другой валидный?</p>
+						<pre class="fragment"><code class="language-plaintext">
+							 _________
+							|    _    |
+							|   | ↓   ↓
+							5 3 1 5 3 1 5 ...
+							  |     ↑ 
+							   ‾‾‾‾‾
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<pre><code class="language-plaintext">
+							 _________
+							|    _    |
+							|   | ↓   ↓
+							5 3 1 5 3 1 5 ...
+							  |     ↑ 
+							   ‾‾‾‾‾
+						</code></pre>
+					<pre class="fragment"><code class="language-plaintext">
+							 _______
+							|    _  |
+							|   | ↓ ↓
+							? ? 1 ? ? 1 ? ...
+							  |       ↑ 
+							   ‾‾‾‾‾‾‾
+						</code></pre>
+						<p class="fragment">531 → 441</p>
+					</section>
+					<section data-auto-animate data-transition="none">
+						<h2>531 → 441 → ?</h2>
+						<pre><code class="language-plaintext">
+							 _______
+							|    _  |
+							|   | ↓ ↓
+							4 4 1 4 4 1 4 ...
+							  |       ↑ 
+							   ‾‾‾‾‾‾‾
+						</code></pre>
+						<pre class="fragment"><code class="language-plaintext">
+							 _______
+							|    ___|_
+							|   |   ↓ ↓
+							4 2 3 4 2 3 4 ...
+							  |   ↑    
+							   ‾‾‾
+						</code></pre>
+						<p class="fragment">531 → 441 → 423 → ?</p>
+					</section>
+					<section data-auto-animate data-transition="none">
+						<h2>531 → 441 → 423</h2>
+						<pre><code class="language-plaintext">
+							 _______
+							|    ___|_
+							|   |   ↓ ↓
+							4 2 3 4 2 3 4 ...
+							  |   ↑    
+							   ‾‾‾
+						</code></pre>
+						<pre class="fragment"><code class="language-plaintext">
+							 _____
+							|    _|___
+							|   | ↓   ↓
+							3 3 3 3 3 3 3 ...
+							  |     ↑    
+							   ‾‾‾‾‾
+						</code></pre>
+						<p class="fragment">531 → 441 → 423 → 333</p>
+					</section>
+					<section>
+						<p>Сколько мячей нужно, чтобы жонглировать 531?</p>
+						<p class="fragment">Столько же, сколько нужно для 333</p>
+					</section>
+				</section>
+
+
+				<section>
+					<p>Новые паттерны!</p>
+					<p class="fragment">441 — ?</p>
+					<p class="fragment">5551 — <a href="https://youtube.com/watch?v=7dwgusHjA0Y&si=EnSIkaIECMiOmarE&t=745">proof</a></p>
+				</section>
+
+
+				<section>
+					<section>
+						<div class="r-fit-text">Нерегулярные паттерны</div>
+						<small>1995 Siteswaps, State Diagrams, and New Ideas. Charlie Dancey and Martin Probert</small>
+						<small>2004 Siteswap state diagrams. Hans Lundmark</small>
+					</section>
+					<section data-auto-animate>
+						<h2 class="r-fit-text">Жонглёр — ДКА</h2>
+					</section>
+					<section data-auto-animate>
+						<h2>Жонглёр — ДКА</h2>
+						<ul>
+							<li class="fragment">Состояние:</li>
+							<ul>
+								<li class="fragment">высоты шаров перед броском</li>
+								<li class="fragment"><em>высота</em> — количество тактов до броска</li>
+							</ul>
+							<li class="fragment">Допустимые переходы:</li>
+							<ul class="fragment">
+								<li>мяч на высоте 0, перемещается на любую <em>свободную</em> высоту</li>
+								<li>все высоты уменьшаются на 1</li>
+							</ul>
+						</ul>
+					</section>
+					<section>
+						<h2>«Выброс» (555000)</h2>
+						<pre><code class="language-plaintext">
+							--111| 5
+							1--11| 5
+							11--1| 5
+							111--| 0
+							-111-| 0
+							--111| 0
+							  	 ↑
+							     это низ
+						</code></pre>
+					</section>
+					<section>
+						<h2>"Shower" (51)</h2>
+						<pre><code class="language-plaintext">
+							-1-11| 5
+							1-1-1| 1
+							-1-11| 5
+							1-1-1| 1
+							  	 ↑
+							     это низ
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Cascad (3) → Shower (51)?</h2>
+						<pre><code class="language-plaintext">
+							--111| 3
+							--111| ?
+							  ...| ? 
+							-1-11| 5
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Cascad (3) → Shower (51)?</h2>
+						<pre><code class="language-plaintext">
+							--111| 3
+							--111| 5
+							1--11| 2
+							-1-11| 5
+							1-1-1| 1
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Cascad (3) → Shower (51)?</h2>
+						<pre><code class="language-plaintext">
+							--111| 3
+							--111| 4
+							-1-11| 5
+							1-1-1| 1
+						</code></pre>
+					</section>
+					<section data-auto-animate>
+						<img width="60%" src="b3h5.png">
+						<p class="small">3 мяча, высота не более 5</p>
+					</section>
+					<section data-auto-animate>
+						<img width="80%" src="b3h5-compact.png">
+						<p class="small">3 мяча, высота не более 5</p>
+					</section>
+					<section data-auto-animate>
+						<table>
+							<tr>
+								<td width="33%">
+									<img src="b3h4-compact.png">
+									<p class="small">3 мяча, высота до 4</p>
+								</td>
+								<td width="33%" class="fragment">
+									<img src="b4h5-compact.png">
+									<p class="small">4 мяча, высота до 5</p>
+								</td>
+								<td width="33%" class="fragment">
+									<img src="b5h6-compact.png">
+									<p class="small">5 мячей, высота до 6</p>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section data-auto-animate>
+						<img width="60%" src="b5h7-compact.png">
+						<p class="small">5 мячей, высота не более 7</p>
+					</section>
+				</section>
+				<section>
+					<h2>Ссылки</h2>
+					<ul>
+						<li><a href="http://ultramatos.free.fr/paper/Hans-Lundmark_siteswap-state-diagrams.pdf">Siteswap state diagrams, Hans Lundmark</a></li>
+						<li><a href="https://mathweb.ucsd.edu/~fan/ron/papers/04_05_juggling.pdf">Juggling Patterns, Passing and Posets, Joe Buhler & Ron Graham</a></li>
+						<li><a href="https://jugglinglab.org/anim">Визуализатор жонглирования</a></li>
+						<li><a href="https://sharmaeklavya2.github.io/blog/juggling-theory.html">The Math behind Juggling, Eklavya's Blog</a></li>
+						<li><a href="https://jugglers.ru">https://jugglers.ru</a></li>
+					</ul>
+				</section>
+				<section>
+					<img src="lecture9-qr.png">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+			});
+		</script>
+	</body>
+</html>
